@@ -1,0 +1,367 @@
+<!doctype html>
+<html lang="fr" data-theme="light">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Programme - AfriConnect Summit 2026</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Syne:wght@700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
+    />
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <header class="main-header">
+      <nav class="navbar" aria-label="Navigation principale">
+        <a href="index.html" class="logo">AfriConnect Summit 2026</a>
+        <div class="nav-links" id="navLinks">
+          <a href="index.html">Accueil</a>
+          <a href="programme.html" class="active">Programme</a>
+          <a href="intervenants.html">Intervenants</a>
+          <a href="contact.html">Inscription & Contact</a>
+        </div>
+        <div class="nav-actions">
+          <button
+            id="themeToggle"
+            class="theme-btn"
+            aria-label="Changer de thème"
+          >
+            <i class="bi bi-moon-stars"></i>
+          </button>
+          <button
+            class="hamburger"
+            id="hamburgerMenu"
+            aria-label="Ouvrir le menu"
+          >
+            <i class="bi bi-list"></i>
+          </button>
+        </div>
+      </nav>
+    </header>
+
+    <main>
+      <section class="internal-hero">
+        <div class="container">
+          <nav class="breadcrumbs" aria-label="Fil d'Ariane">
+            <a href="index.html">Accueil</a> &gt;
+            <span aria-current="page">Programme</span>
+          </nav>
+          <h1>Le Programme de la Conférence</h1>
+        </div>
+      </section>
+
+      <section class="schedule-section">
+        <div class="container">
+          <div
+            class="tabs-container"
+            role="tablist"
+            aria-label="Planning de l'événement"
+          >
+            <button
+              class="tab-btn active"
+              role="tab"
+              aria-selected="true"
+              aria-controls="day1-panel"
+              id="day1-tab"
+            >
+              Jour 1 (15 Oct)
+            </button>
+            <button
+              class="tab-btn"
+              role="tab"
+              aria-selected="false"
+              aria-controls="day2-panel"
+              id="day2-tab"
+            >
+              Jour 2 (16 Oct)
+            </button>
+            <button
+              class="tab-btn"
+              role="tab"
+              aria-selected="false"
+              aria-controls="day3-panel"
+              id="day3-tab"
+            >
+              Jour 3 (17 Oct)
+            </button>
+          </div>
+
+          <div
+            class="tab-panel active"
+            id="day1-panel"
+            role="tabpanel"
+            aria-labelledby="day1-tab"
+          >
+            <table class="schedule-table">
+              <thead>
+                <tr>
+                  <th>Heure</th>
+                  <th>Session</th>
+                  <th>Intervenant</th>
+                  <th>Salle</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td class="time">08:30 - 09:30</td>
+                  <td class="session-title">Accueil & Enregistrement</td>
+                  <td>-</td>
+                  <td>Hall Principal</td>
+                </tr>
+                <tr>
+                  <td class="time">09:30 - 10:30</td>
+                  <td class="session-title">
+                    Keynote d'ouverture : La souveraineté numérique africaine
+                  </td>
+                  <td>Fatoumata Diallo</td>
+                  <td>Amphithéâtre Kélilan</td>
+                </tr>
+                <tr>
+                  <td class="time">10:45 - 12:00</td>
+                  <td class="session-title">
+                    Modern Web & Performance en 2026
+                  </td>
+                  <td>Koffi Mensah</td>
+                  <td>Salle Alizé</td>
+                </tr>
+                <tr>
+                  <td class="time">14:00 - 15:30</td>
+                  <td class="session-title">
+                    Atelier : Déployer son infra avec résilience locale
+                  </td>
+                  <td>Aminata Touré</td>
+                  <td>Lab Tech 1</td>
+                </tr>
+                <tr>
+                  <td class="time">16:00 - 17:30</td>
+                  <td class="session-title">
+                    Table Ronde : Financements Tech en Afrique francophone
+                  </td>
+                  <td>Panel d'investisseurs</td>
+                  <td>Amphithéâtre Kélilan</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <div
+            class="tab-panel"
+            id="day2-panel"
+            role="tabpanel"
+            aria-labelledby="day2-tab"
+            hidden
+          >
+            <table class="schedule-table">
+              <thead>
+                <tr>
+                  <th>Heure</th>
+                  <th>Session</th>
+                  <th>Intervenant</th>
+                  <th>Salle</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td class="time">09:00 - 10:30</td>
+                  <td class="session-title">
+                    Intégrer les LLMs dans des environnements contraints
+                  </td>
+                  <td>Moussa Ndiaye</td>
+                  <td>Amphithéâtre Kélilan</td>
+                </tr>
+
+                <tr>
+                  <td class="time">10:45 - 12:00</td>
+                  <td class="session-title">
+                    Cybersécurité des entreprises africaines
+                  </td>
+                  <td>Fatoumata Diallo</td>
+                  <td>Salle Alizé</td>
+                </tr>
+
+                <tr>
+                  <td class="time">13:30 - 14:30</td>
+                  <td class="session-title">Créer une Startup Tech rentable</td>
+                  <td>Koffi Mensah</td>
+                  <td>Lab Innovation</td>
+                </tr>
+
+                <tr>
+                  <td class="time">15:00 - 16:00</td>
+                  <td class="session-title">Cloud Computing et DevOps</td>
+                  <td>Jean Bosco</td>
+                  <td>Salle Baobab</td>
+                </tr>
+
+                <tr>
+                  <td class="time">16:30 - 17:30</td>
+                  <td class="session-title">Networking & Pitch Startups</td>
+                  <td>Panel</td>
+                  <td>Hall Principal</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <div
+            class="tab-panel"
+            id="day3-panel"
+            role="tabpanel"
+            aria-labelledby="day3-tab"
+            hidden
+          >
+            <table class="schedule-table">
+              <thead>
+                <tr>
+                  <th>Heure</th>
+                  <th>Session</th>
+                  <th>Intervenant</th>
+                  <th>Salle</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td class="time">09:00 - 10:00</td>
+                  <td class="session-title">Design Thinking</td>
+                  <td>Chloé Diop</td>
+                  <td>Salle Alizé</td>
+                </tr>
+
+                <tr>
+                  <td class="time">10:15 - 11:30</td>
+                  <td class="session-title">UI/UX Inclusive</td>
+                  <td>Amina Ndiaye</td>
+                  <td>Salle Innovation</td>
+                </tr>
+
+                <tr>
+                  <td class="time">11:45 - 12:45</td>
+                  <td class="session-title">Data Science pour l'Afrique</td>
+                  <td>Fatoumata Diallo</td>
+                  <td>Amphithéâtre</td>
+                </tr>
+
+                <tr>
+                  <td class="time">14:00 - 15:30</td>
+                  <td class="session-title">Blockchain & Finance</td>
+                  <td>Koffi Mensah</td>
+                  <td>Lab Tech</td>
+                </tr>
+
+                <tr>
+                  <td class="time">16:00 - 17:00</td>
+                  <td class="session-title">Clôture Officielle</td>
+                  <td>Organisation</td>
+                  <td>Hall Principal</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <section class="topics-section section-scroll-animate">
+        <div class="container">
+          <h2 class="section-title">Les Grandes Thématiques de 2026</h2>
+          <div class="topics-grid">
+            <div class="topic-card">
+              <div class="topic-icon"><i class="bi bi-cpu"></i></div>
+              <h3>Intelligence Artificielle & Cloud</h3>
+              <p>
+                Discussion sur le déploiement de modèles locaux et la
+                souveraineté des données à l'échelle du continent.
+              </p>
+            </div>
+            <div class="topic-card">
+              <div class="topic-icon">
+                <i class="bi bi-currency-exchange"></i>
+              </div>
+              <h3>Fintech & Business</h3>
+              <p>
+                Les clés de l'interopérabilité des paiements mobiles et les
+                levées de fonds d'amorçage en Afrique.
+              </p>
+            </div>
+            <div class="topic-card">
+              <div class="topic-icon"><i class="bi bi-palette"></i></div>
+              <h3>Product Design & UX</h3>
+              <p>
+                Penser et designer des solutions d'usage intuitif, adaptées aux
+                réalités des connexions et des terminaux locaux.
+              </p>
+            </div>
+            <div class="topic-card">
+              <div class="topic-icon">
+                <i class="bi bi-database-fill-gear"></i>
+              </div>
+              <h3>Big Data & Web3</h3>
+              <p>
+                Optimisation du traitement de la donnée massifiée et
+                opportunités de la décentralisation dans l'éducation et la
+                finance.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="main-footer">
+      <div class="container footer-grid">
+        <div class="footer-col">
+          <h4>AfriConnect 2026</h4>
+          <p>Le carrefour de l'écosystème numérique africain.</p>
+        </div>
+        <div class="footer-col">
+          <h4>Ressources</h4>
+          <ul>
+            <li><a href="programme.html">Programme</a></li>
+            <li><a href="intervenants.html">Intervenants</a></li>
+            <li><a href="contact.html">Presse & Médias</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Suivez-nous</h4>
+          <div class="social-links">
+            <a href="#" aria-label="Suivez-nous sur X / Twitter"
+              ><i class="bi bi-twitter-x"></i
+            ></a>
+            <a href="#" aria-label="Suivez-nous sur LinkedIn"
+              ><i class="bi bi-linkedin"></i
+            ></a>
+            <a href="#" aria-label="Suivez-nous sur YouTube"
+              ><i class="bi bi-youtube"></i
+            ></a>
+            <a href="#" aria-label="Suivez-nous sur Instagram"
+              ><i class="bi bi-instagram"></i
+            ></a>
+            <a href="#" aria-label="Suivez-nous sur Facebook"
+              ><i class="bi bi-facebook"></i
+            ></a>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>
+          &copy; <span id="currentYear"></span> AfriConnect Summit. Tous droits
+          réservés.
+        </p>
+      </div>
+      <button
+        id="scrollTopBtn"
+        class="scroll-top-btn"
+        aria-label="Retourner en haut de la page"
+      >
+        <i class="bi bi-arrow-up-short"></i>
+      </button>
+    </footer>
+
+    <script src="js/main.js"></script>
+  </body>
+</html>

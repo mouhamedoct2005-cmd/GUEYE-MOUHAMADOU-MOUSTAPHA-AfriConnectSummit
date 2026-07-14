@@ -1,0 +1,357 @@
+<!doctype html>
+<html lang="fr" data-theme="light">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Inscription & Contact - AfriConnect Summit 2026</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Syne:wght@700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
+    />
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <header class="main-header">
+      <nav class="navbar" aria-label="Navigation principale">
+        <a href="index.html" class="logo">AfriConnect Summit 2026</a>
+        <div class="nav-links" id="navLinks">
+          <a href="index.html">Accueil</a>
+          <a href="programme.html">Programme</a>
+          <a href="intervenants.html">Intervenants</a>
+          <a href="contact.html" class="active">Inscription & Contact</a>
+        </div>
+        <div class="nav-actions">
+          <button
+            id="themeToggle"
+            class="theme-btn"
+            aria-label="Changer de thème"
+          >
+            <i class="bi bi-moon-stars"></i>
+          </button>
+          <button
+            class="hamburger"
+            id="hamburgerMenu"
+            aria-label="Ouvrir le menu"
+          >
+            <i class="bi bi-list"></i>
+          </button>
+        </div>
+      </nav>
+    </header>
+
+    <main>
+      <section class="internal-hero">
+        <div class="container">
+          <nav class="breadcrumbs" aria-label="Fil d'Ariane">
+            <a href="index.html">Accueil</a> &gt;
+            <span aria-current="page">Inscription & Contact</span>
+          </nav>
+          <h1>S'enregistrer & Nous Contacter</h1>
+        </div>
+      </section>
+
+      <section class="form-section section-scroll-animate">
+        <div class="container flex-form-container">
+          <div class="form-col-left">
+            <h2>Formulaire de participation</h2>
+            <p class="form-intro-text">
+              Prenez votre ticket pour l'événement tech de l'année. Remplissez
+              scrupuleusement les champs ci-dessous.
+            </p>
+
+            <div
+              id="successMessage"
+              class="alert-success"
+              style="display: none"
+            >
+              <i class="bi bi-check-circle-fill"></i> Votre inscription a bien
+              été enregistrée ! Un email de confirmation vous a été envoyé.
+            </div>
+
+            <form id="registrationForm" novalidate>
+              <div class="form-group">
+                <label for="fullName"
+                  >Nom complet <span class="required">*</span></label
+                >
+                <input
+                  type="text"
+                  id="fullName"
+                  name="fullName"
+                  placeholder="Ex: Jean Dupont"
+                  required
+                />
+                <small class="error-msg"></small>
+              </div>
+
+              <div class="form-group">
+                <label for="email"
+                  >Adresse email <span class="required">*</span></label
+                >
+                <input
+                  type="email"
+                  id="email"
+                  name="email"
+                  placeholder="Ex: jean.dupont@gmail.com"
+                  required
+                />
+                <small class="error-msg"></small>
+              </div>
+
+              <div class="form-group">
+                <label for="phone"
+                  >Téléphone <span class="required">*</span></label
+                >
+                <input
+                  type="tel"
+                  id="phone"
+                  name="phone"
+                  placeholder="Ex: +221 77 000 00 00 (min 8 chiffres)"
+                  required
+                />
+                <small class="error-msg"></small>
+              </div>
+
+              <div class="form-group">
+                <label for="ticketType"
+                  >Type de participation <span class="required">*</span></label
+                >
+                <select id="ticketType" name="ticketType" required>
+                  <option value="" disabled selected>Choisir un type...</option>
+                  <option value="participant">Participant</option>
+                  <option value="intervenant">Intervenant</option>
+                  <option value="sponsor">Sponsor</option>
+                  <option value="presse">Presse</option>
+                </select>
+                <small class="error-msg"></small>
+              </div>
+
+              <div class="form-group">
+                <label for="country"
+                  >Pays d'origine <span class="required">*</span></label
+                >
+                <select id="country" name="country" required>
+                  <option value="" disabled selected>Choisir un pays...</option>
+                  <option value="Senegal">Sénégal</option>
+                  <option value="Cote_d_Ivoire">Côte d'Ivoire</option>
+                  <option value="Togo">Togo</option>
+                  <option value="Mali">Mali</option>
+                  <option value="Cameroun">Cameroun</option>
+                  <option value="Benin">Bénin</option>
+                  <option value="Maroc">Maroc</option>
+                  <option value="Gabon">Gabon</option>
+                  <option value="RDC">République Démocratique du Congo</option>
+                  <option value="Burkina_Faso">Burkina Faso</option>
+                  <option value="Niger">Niger</option>
+                  <option value="Tchad">Tchad</option>
+                </select>
+                <small class="error-msg"></small>
+              </div>
+
+              <div class="form-group">
+                <label for="motivation"
+                  >Motivation ou Message <span class="required">*</span></label
+                >
+                <textarea
+                  id="motivation"
+                  name="motivation"
+                  rows="5"
+                  placeholder="Dites-nous en quelques mots ce que vous attendez du sommet (min 20 caractères)..."
+                  required
+                ></textarea>
+                <small class="error-msg"></small>
+              </div>
+
+              <button type="submit" class="btn btn-primary btn-block">
+                Valider mon inscription
+              </button>
+            </form>
+          </div>
+
+          <div class="form-col-right">
+            <div class="info-card">
+              <h3>Accès à l'événement</h3>
+              <p>
+                <strong>Lieu :</strong> Centre international de Conférences
+                Abdou Diouf (CICAD), Diamniadio, Dakar, Sénégal
+              </p>
+              <p>
+                <strong>Restauration :</strong> Buffets midi et pauses café
+                inclus pour les tickets VIP et Premium.
+              </p>
+              <p>
+                <strong>Contact d'assistance :</strong>
+                <a href="mailto:support@africonnect.org"
+                  >support@africonnect.org</a
+                >
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="faq-section section-scroll-animate">
+        <div class="container">
+          <h2 class="section-title">Foire Aux Questions (FAQ)</h2>
+
+          <div class="accordion">
+            <div class="accordion-item">
+              <input type="checkbox" id="faq-1" class="accordion-toggle" />
+              <label for="faq-1" class="accordion-header">
+                <span>L'événement est-il disponible en ligne ?</span>
+                <span class="icon"><i class="bi bi-chevron-down"></i></span>
+              </label>
+              <div class="accordion-content">
+                <p>
+                  Oui, l'ensemble des conférences majeures tenues dans
+                  l'Amphithéâtre principal sera retransmis en direct et
+                  disponible en replay pour tous les inscrits.
+                </p>
+              </div>
+            </div>
+
+            <div class="accordion-item">
+              <input type="checkbox" id="faq-2" class="accordion-toggle" />
+              <label for="faq-2" class="accordion-header">
+                <span>Quels sont les modes de paiement autorisés ?</span>
+                <span class="icon"><i class="bi bi-chevron-down"></i></span>
+              </label>
+              <div class="accordion-content">
+                <p>
+                  Nous acceptons les paiements par carte de crédit
+                  internationale, mais également via les principaux systèmes
+                  mobiles (Wave, Orange Money, Free Money) de la région
+                  Ouest-Africaine.
+                </p>
+              </div>
+            </div>
+
+            <div class="accordion-item">
+              <input type="checkbox" id="faq-3" class="accordion-toggle" />
+              <label for="faq-3" class="accordion-header">
+                <span>Où loger durant mon séjour à Dakar ?</span>
+                <span class="icon"><i class="bi bi-chevron-down"></i></span>
+              </label>
+              <div class="accordion-content">
+                <p>
+                  Des hôtels partenaires à Diamniadio et Dakar-Plateau proposent
+                  des réductions exclusives allant jusqu'à 30% pour tous nos
+                  festivaliers disposant d'un ticket premium ou VIP.
+                </p>
+              </div>
+            </div>
+
+            <div class="accordion-item">
+              <input type="checkbox" id="faq-4" class="accordion-toggle" />
+              <label for="faq-4" class="accordion-header">
+                <span>Puis-je modifier ou annuler mon billet ?</span>
+                <span class="icon"><i class="bi bi-chevron-down"></i></span>
+              </label>
+              <div class="accordion-content">
+                <p>
+                  Les billets sont modifiables (changement de nom du titulaire)
+                  sans frais jusqu'à 72h avant l'ouverture de l'événement. Aucun
+                  remboursement n'est cependant possible.
+                </p>
+              </div>
+            </div>
+
+            <div class="accordion-item">
+              <input type="checkbox" id="faq-5" class="accordion-toggle" />
+              <label for="faq-5" class="accordion-header">
+                <span>Y a-t-il des espaces pour le coworking ?</span>
+                <span class="icon"><i class="bi bi-chevron-down"></i></span>
+              </label>
+              <div class="accordion-content">
+                <p>
+                  Oui ! Le hall d'exposition comporte un espace de coworking
+                  équipé d'une connexion internet fibrée très haut débit,
+                  ouverte à l'ensemble des participants.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="map-section section-scroll-animate">
+        <div class="container">
+          <h2 class="section-title">Nous Trouver</h2>
+          <div class="map-wrapper">
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15443.513222384918!2d-17.202359!3d14.719655!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xed017a7e8e7ffff7%3A0xe5eb6c4fe354dca8!2sCICAD%20-%20Centre%20International%20de%20Conf%C3%A9rences%20Abdou%20Diouf!5e0!3m2!1sfr!2ssn!4v1700000000000!5m2!1sfr!2ssn"
+              width="100%"
+              height="450"
+              style="border: 0"
+              allowfullscreen=""
+              loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade"
+              title="Localisation du CICAD, Dakar"
+            >
+            </iframe>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="main-footer">
+      <div class="container footer-grid">
+        <div class="footer-col">
+          <h4>AfriConnect 2026</h4>
+          <p>Le carrefour de l'écosystème numérique africain.</p>
+        </div>
+        <div class="footer-col">
+          <h4>Ressources</h4>
+          <ul>
+            <li><a href="programme.html">Programme</a></li>
+            <li><a href="intervenants.html">Intervenants</a></li>
+            <li><a href="contact.html">Presse & Médias</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Suivez-nous</h4>
+          <div class="social-links">
+            <a href="#" aria-label="Suivez-nous sur X / Twitter"
+              ><i class="bi bi-twitter-x"></i
+            ></a>
+            <a href="#" aria-label="Suivez-nous sur LinkedIn"
+              ><i class="bi bi-linkedin"></i
+            ></a>
+            <a href="#" aria-label="Suivez-nous sur YouTube"
+              ><i class="bi bi-youtube"></i
+            ></a>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>
+          &copy; <span id="currentYear"></span> AfriConnect Summit. Tous droits
+          réservés.
+        </p>
+      </div>
+      <button
+        id="scrollTopBtn"
+        class="scroll-top-btn"
+        aria-label="Retourner en haut de la page"
+      >
+        <i class="bi bi-arrow-up-short"></i>
+      </button>
+      <div class="footer-col">
+                <h4>Suivez-nous</h4>
+                <div class="social-links">
+                    <a href="#" aria-label="Suivez-nous sur X / Twitter"><i class="bi bi-twitter-x"></i></a>
+                    <a href="#" aria-label="Suivez-nous sur LinkedIn"><i class="bi bi-linkedin"></i></a>
+                    <a href="#" aria-label="Suivez-nous sur YouTube"><i class="bi bi-youtube"></i></a>
+                    <a href="#" aria-label="Suivez-nous sur Instagram"><i class="bi bi-instagram"></i></a>
+                    <a href="#" aria-label="Suivez-nous sur Facebook"><i class="bi bi-facebook"></i></a>
+                </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+  </body>
+</html>
