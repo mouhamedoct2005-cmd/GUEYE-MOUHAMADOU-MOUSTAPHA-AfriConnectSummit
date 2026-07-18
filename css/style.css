@@ -285,6 +285,9 @@ section {
   font-weight: 800;
   font-size: 1.15rem;
   color: var(--text);
+  display: flex;
+  align-items: center;
+  gap: 12px;
 }
 
 .nav-links {
@@ -1284,4 +1287,10 @@ section {
   .sponsors-flex {
     flex-direction: column;
   }
+}
+
+.logo img {
+    height: 50px;
+    width: auto;
+    display: inline-block;
 }
