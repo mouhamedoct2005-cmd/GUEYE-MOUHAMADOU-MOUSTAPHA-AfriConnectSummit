@@ -843,11 +843,26 @@ section {
    14. HERO INTERNE (programme / intervenants / contact)
    -------------------------------------------------------------------------- */
 .internal-hero {
+  position: relative;
   padding-top: calc(var(--space-xl) + 2rem);
   padding-bottom: var(--space-md);
   background: var(--bg-alt);
+  background-image: radial-gradient(
+    circle at 90% 0%,
+    rgba(255, 61, 129, 0.12),
+    transparent 55%
+  );
   text-align: left;
+  overflow: hidden;
 }
+
+.internal-hero h1 {
+  background: var(--gradient-sunset);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
 
 .breadcrumbs {
   margin-bottom: var(--space-sm);
@@ -856,7 +871,7 @@ section {
 }
 
 .breadcrumbs a {
-  color: var(--clr-teal);
+  color: var(--clr-sunset-2);
 }
 
 .breadcrumbs a:hover {
