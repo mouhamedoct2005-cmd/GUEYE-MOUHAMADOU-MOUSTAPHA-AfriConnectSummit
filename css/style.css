@@ -1237,9 +1237,41 @@ section {
 /* --------------------------------------------------------------------------
    20. ANIMATIONS AU SCROLL — piloté par IntersectionObserver (JS)
    -------------------------------------------------------------------------- */
+/* =====================Effet zoom =========================== */
+   /* Fade + slide — comportement par défaut, déjà posé sur tes sections */
 .section-scroll-animate {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+
+.section-scroll-animate.in-view {
   opacity: 1;
-  transform: none;
+  transform: translateY(0);
+}
+
+/* Variante zoom-in — ajoute class="zoom-in" sur un élément si tu veux cet effet à la place */
+.zoom-in {
+  opacity: 0;
+  transform: scale(0.85);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+
+.zoom-in.in-view {
+  opacity: 1;
+  transform: scale(1);
+}
+
+/* Variante slide-in pure (sans fade), pour un effet plus marqué latéralement */
+.slide-in-left {
+  opacity: 0;
+  transform: translateX(-60px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+
+.slide-in-left.in-view {
+  opacity: 1;
+  transform: translateX(0);
 }
 
 /* --------------------------------------------------------------------------

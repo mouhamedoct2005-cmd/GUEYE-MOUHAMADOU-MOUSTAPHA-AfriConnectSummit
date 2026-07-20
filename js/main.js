@@ -32,7 +32,7 @@ document.addEventListener("DOMContentLoaded", () => {
             localStorage.setItem(THEME_KEY, next);
         });
     }
-
+// =================hamburger menu========================
     const hamburger = document.getElementById("hamburgerMenu");
 const navLinks = document.getElementById("navLinks");
 
@@ -50,6 +50,28 @@ if (hamburger && navLinks) {
       hamburger.querySelector("i").className = "bi bi-list";
     });
   });
+}
+
+// ==================Animation au scroll========================
+/* ANIMATIONS AU SCROLL — IntersectionObserver */
+const animatedEls = document.querySelectorAll(
+  ".section-scroll-animate, .zoom-in, .slide-in-left"
+);
+
+if (animatedEls.length > 0) {
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("in-view");
+          observer.unobserve(entry.target);
+        }
+      });
+    },
+    { threshold: 0.15 }
+  );
+
+  animatedEls.forEach((el) => observer.observe(el));
 }
 });
 
@@ -83,7 +105,7 @@ tabButtons.forEach((btn) => {
     });
 });
 
-/* ===================NAVBAR DYNAMIC et HAMBURGER======================== */
+/* ===================NAVBAR DYNAMIC ======================== */
 
 /* NAVBAR DYNAMIQUE — vitre dépolie après 80px + masquage au scroll vers le bas */
 const mainHeader = document.querySelector(".main-header");
