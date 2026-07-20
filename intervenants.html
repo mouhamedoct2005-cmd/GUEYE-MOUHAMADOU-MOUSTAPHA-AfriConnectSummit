@@ -1,201 +1,301 @@
-
-<!DOCTYPE html>
+<!doctype html>
 <html lang="fr" data-theme="light">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Intervenants - AfriConnect Summit 2026</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Syne:wght@700;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
-    <link rel="stylesheet" href="css/style.css">
-</head>
-<body>
-
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Syne:wght@700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
+    />
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
     <header class="main-header">
-        <nav class="navbar" aria-label="Navigation principale">
-            <a href="index.html" class="logo">
-                <img
-                 src="images/logo africonnect.jpeg" 
-                 alt="AfriConnect Summit"
-                 />
-                 AfriConnect Summit
-            </a>
-            <div class="nav-links" id="navLinks">
-                <a href="index.html">Accueil</a>
-                <a href="programme.html">Programme</a>
-                <a href="intervenants.html" class="active">Intervenants</a>
-                <a href="contact.html">Inscription & Contact</a>
-            </div>
-            <div class="nav-actions">
-                <button id="themeToggle" class="theme-btn" aria-label="Changer de thème"><i class="bi bi-moon-stars"></i></button>
-                <button class="hamburger" id="hamburgerMenu" aria-label="Ouvrir le menu"><i class="bi bi-list"></i></button>
-            </div>
-        </nav>
+      <nav class="navbar" aria-label="Navigation principale">
+        <a href="index.html" class="logo">
+          <img src="images/logo africonnect.jpeg" alt="AfriConnect Summit" />
+          AfriConnect Summit
+        </a>
+        <div class="nav-links" id="navLinks">
+          <a href="index.html">Accueil</a>
+          <a href="programme.html">Programme</a>
+          <a href="intervenants.html" class="active">Intervenants</a>
+          <a href="contact.html">Inscription & Contact</a>
+        </div>
+        <div class="nav-actions">
+          <button
+            id="themeToggle"
+            class="theme-btn"
+            aria-label="Changer de thème"
+          >
+            <i class="bi bi-moon-stars"></i>
+          </button>
+          <button
+            class="hamburger"
+            id="hamburgerMenu"
+            aria-label="Ouvrir le menu"
+          >
+            <i class="bi bi-list"></i>
+          </button>
+        </div>
+      </nav>
     </header>
 
     <main>
-        <section class="internal-hero">
-            <div class="container">
-                <nav class="breadcrumbs" aria-label="Fil d'Ariane">
-                    <a href="index.html">Accueil</a> &gt; <span aria-current="page">Intervenants</span>
-                </nav>
-                <h1>Plongez dans l'univers de nos talents</h1>
-            </div>
-        </section>
+      <section class="internal-hero">
+        <div class="container">
+          <nav class="breadcrumbs" aria-label="Fil d'Ariane">
+            <a href="index.html">Accueil</a> &gt;
+            <span aria-current="page">Intervenants</span>
+          </nav>
+          <h1>Plongez dans l'univers de nos talents</h1>
+        </div>
+      </section>
 
-        <section class="filter-section">
-            <div class="container">
-                <div class="filter-buttons-group">
-                    <button class="filter-btn active" data-category="all">Tous</button>
-                    <button class="filter-btn" data-category="ia">IA & Tech</button>
-                    <button class="filter-btn" data-category="business">Business</button>
-                    <button class="filter-btn" data-category="design">Design</button>
-                    <button class="filter-btn" data-category="data">Data</button>
-                </div>
-            </div>
-        </section>
+      <section class="filter-section">
+        <div class="container">
+          <div class="filter-buttons-group">
+            <button class="filter-btn active" data-category="all">Tous</button>
+            <button class="filter-btn" data-category="ia">IA & Tech</button>
+            <button class="filter-btn" data-category="business">
+              Business
+            </button>
+            <button class="filter-btn" data-category="design">Design</button>
+            <button class="filter-btn" data-category="data">Data</button>
+          </div>
+        </div>
+      </section>
 
-        <section class="speakers-section">
-            <div class="container">
-                <div class="speakers-main-grid" id="speakersGrid">
+      <section class="speakers-section">
+        <div class="container">
+          <div class="speakers-main-grid" id="speakersGrid">
+            <article
+              class="speaker-card section-scroll-animate"
+              data-category="ia"
+            >
+              <div class="speaker-img-wrapper">
+                <img
+                  src="images/femme3.jpeg"
+                  alt="Fatoumata Diallo"
+                  loading="lazy"
+                />
+              </div>
+              <div class="speaker-info">
+                <h3>Fatoumata Diallo</h3>
+                <p class="specialty">Experte IA Générative</p>
+                <span class="country"
+                  ><i class="bi bi-geo-alt"></i> Sénégal</span
+                >
+              </div>
+            </article>
 
-                    <article class="speaker-card section-scroll-animate" data-category="ia">
-                        <div class="speaker-img-wrapper">
-                            <img src="images/femme3.jpeg" alt="Fatoumata Diallo" loading="lazy">
-                        </div>
-                        <div class="speaker-info">
-                            <h3>Fatoumata Diallo</h3>
-                            <p class="specialty">Experte IA Générative</p>
-                            <span class="country"><i class="bi bi-geo-alt"></i> Sénégal</span>
-                        </div>
-                    </article>
+            <article
+              class="speaker-card section-scroll-animate"
+              data-category="business"
+            >
+              <div class="speaker-img-wrapper">
+                <img
+                  src="images/homme3.jpeg"
+                  alt="Aliou Diakate"
+                  loading="lazy"
+                />
+              </div>
+              <div class="speaker-info">
+                <h3>Aliou Diakate</h3>
+                <p class="specialty">Venture Capitalist</p>
+                <span class="country"><i class="bi bi-geo-alt"></i> Togo</span>
+              </div>
+            </article>
 
-                    <article class="speaker-card section-scroll-animate" data-category="business">
-                        <div class="speaker-img-wrapper">
-                            <img src="images/homme3.jpeg" alt="Aliou Diakate" loading="lazy">
-                        </div>
-                        <div class="speaker-info">
-                            <h3>Aliou Diakate</h3>
-                            <p class="specialty">Venture Capitalist</p>
-                            <span class="country"><i class="bi bi-geo-alt"></i> Togo</span>
-                        </div>
-                    </article>
+            <article
+              class="speaker-card section-scroll-animate"
+              data-category="design"
+            >
+              <div class="speaker-img-wrapper">
+                <img src="images/femme4.jpeg" alt="Chloé Diop" loading="lazy" />
+              </div>
+              <div class="speaker-info">
+                <h3>Chloé Diop</h3>
+                <p class="specialty">Lead Product Designer</p>
+                <span class="country"
+                  ><i class="bi bi-geo-alt"></i> Côte d'Ivoire</span
+                >
+              </div>
+            </article>
 
-                    <article class="speaker-card section-scroll-animate" data-category="design">
-                        <div class="speaker-img-wrapper">
-                            <img src="images/femme4.jpeg" alt="Chloé Diop" loading="lazy">
-                        </div>
-                        <div class="speaker-info">
-                            <h3>Chloé Diop</h3>
-                            <p class="specialty">Lead Product Designer</p>
-                            <span class="country"><i class="bi bi-geo-alt"></i> Côte d'Ivoire</span>
-                        </div>
-                    </article>
+            <article
+              class="speaker-card section-scroll-animate"
+              data-category="data"
+            >
+              <div class="speaker-img-wrapper">
+                <img
+                  src="images/femme5.jpeg"
+                  alt="Aminata Touré"
+                  loading="lazy"
+                />
+              </div>
+              <div class="speaker-info">
+                <h3>Aminata Touré</h3>
+                <p class="specialty">Data Analyst & Architecte</p>
+                <span class="country"><i class="bi bi-geo-alt"></i> Mali</span>
+              </div>
+            </article>
 
-                    <article class="speaker-card section-scroll-animate" data-category="data">
-                        <div class="speaker-img-wrapper">
-                            <img src="images/femme5.jpeg" alt="Aminata Touré" loading="lazy">
-                        </div>
-                        <div class="speaker-info">
-                            <h3>Aminata Touré</h3>
-                            <p class="specialty">Data Analyst & Architecte</p>
-                            <span class="country"><i class="bi bi-geo-alt"></i> Mali</span>
-                        </div>
-                    </article>
+            <article
+              class="speaker-card section-scroll-animate"
+              data-category="ia"
+            >
+              <div class="speaker-img-wrapper">
+                <img
+                  src="images/homme4.jpeg"
+                  alt="Moussa Ndiaye"
+                  loading="lazy"
+                />
+              </div>
+              <div class="speaker-info">
+                <h3>Moussa Ndiaye</h3>
+                <p class="specialty">Ingénieur Cloud & DevSecOps</p>
+                <span class="country"
+                  ><i class="bi bi-geo-alt"></i> Cameroun</span
+                >
+              </div>
+            </article>
 
-                    <article class="speaker-card section-scroll-animate" data-category="ia">
-                        <div class="speaker-img-wrapper">
-                            <img src="images/homme4.jpeg" alt="Moussa Ndiaye" loading="lazy">
-                        </div>
-                        <div class="speaker-info">
-                            <h3>Moussa Ndiaye</h3>
-                            <p class="specialty">Ingénieur Cloud & DevSecOps</p>
-                            <span class="country"><i class="bi bi-geo-alt"></i> Cameroun</span>
-                        </div>
-                    </article>
+            <article
+              class="speaker-card section-scroll-animate"
+              data-category="business"
+            >
+              <div class="speaker-img-wrapper">
+                <img
+                  src="images/homme5.jpeg"
+                  alt="Elowen Osei"
+                  loading="lazy"
+                />
+              </div>
+              <div class="speaker-info">
+                <h3>Elowen Osei</h3>
+                <p class="specialty">Spécialiste Fintech</p>
+                <span class="country"><i class="bi bi-geo-alt"></i> Ghana</span>
+              </div>
+            </article>
 
-                    <article class="speaker-card section-scroll-animate" data-category="business">
-                        <div class="speaker-img-wrapper">
-                            <img src="images/homme5.jpeg" alt="Elowen Osei" loading="lazy">
-                        </div>
-                        <div class="speaker-info">
-                            <h3>Elowen Osei</h3>
-                            <p class="specialty">Spécialiste Fintech</p>
-                            <span class="country"><i class="bi bi-geo-alt"></i> Ghana</span>
-                        </div>
-                    </article>
+            <article
+              class="speaker-card section-scroll-animate"
+              data-category="design"
+            >
+              <div class="speaker-img-wrapper">
+                <img
+                  src="images/homme6.jpeg"
+                  alt="Salif Keita"
+                  loading="lazy"
+                />
+              </div>
+              <div class="speaker-info">
+                <h3>Salif Keita</h3>
+                <p class="specialty">Directeur Artistique UX</p>
+                <span class="country"
+                  ><i class="bi bi-geo-alt"></i> Guinée</span
+                >
+              </div>
+            </article>
 
-                    <article class="speaker-card section-scroll-animate" data-category="design">
-                        <div class="speaker-img-wrapper">
-                            <img src="images/homme6.jpeg" alt="Salif Keita" loading="lazy">
-                        </div>
-                        <div class="speaker-info">
-                            <h3>Salif Keita</h3>
-                            <p class="specialty">Directeur Artistique UX</p>
-                            <span class="country"><i class="bi bi-geo-alt"></i> Guinée</span>
-                        </div>
-                    </article>
+            <article
+              class="speaker-card section-scroll-animate"
+              data-category="data"
+            >
+              <div class="speaker-img-wrapper">
+                <img
+                  src="images/femme6.jpeg"
+                  alt="Zeynabou Sow"
+                  loading="lazy"
+                />
+              </div>
+              <div class="speaker-info">
+                <h3>Zeynabou Sow</h3>
+                <p class="specialty">Chercheuse Big Data</p>
+                <span class="country"><i class="bi bi-geo-alt"></i> Bénin</span>
+              </div>
+            </article>
 
-                    <article class="speaker-card section-scroll-animate" data-category="data">
-                        <div class="speaker-img-wrapper">
-                            <img src="images/femme6.jpeg" alt="Zeynabou Sow" loading="lazy">
-                        </div>
-                        <div class="speaker-info">
-                            <h3>Zeynabou Sow</h3>
-                            <p class="specialty">Chercheuse Big Data</p>
-                            <span class="country"><i class="bi bi-geo-alt"></i> Bénin</span>
-                        </div>
-                    </article>
-
-                    <article class="speaker-card section-scroll-animate" data-category="ia">
-                        <div class="speaker-img-wrapper">
-                            <img src="images/homme7.jpeg" alt="Tariq Al-Fayed" loading="lazy">
-                        </div>
-                        <div class="speaker-info">
-                            <h3>Tariq Al-Fayed</h3>
-                            <p class="specialty">Chercheur en Robotique</p>
-                            <span class="country"><i class="bi bi-geo-alt"></i> Maroc</span>
-                        </div>
-                    </article>
-
-                </div>
-            </div>
-        </section>
+            <article
+              class="speaker-card section-scroll-animate"
+              data-category="ia"
+            >
+              <div class="speaker-img-wrapper">
+                <img
+                  src="images/homme7.jpeg"
+                  alt="Tariq Al-Fayed"
+                  loading="lazy"
+                />
+              </div>
+              <div class="speaker-info">
+                <h3>Tariq Al-Fayed</h3>
+                <p class="specialty">Chercheur en Robotique</p>
+                <span class="country"><i class="bi bi-geo-alt"></i> Maroc</span>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
     </main>
 
     <footer class="main-footer">
-        <div class="container footer-grid">
-            <div class="footer-col">
-                <h4>AfriConnect 2026</h4>
-                <p>Le carrefour de l'écosystème numérique africain.</p>
-            </div>
-            <div class="footer-col">
-                <h4>Ressources</h4>
-                <ul>
-                    <li><a href="programme.html">Programme</a></li>
-                    <li><a href="intervenants.html">Intervenants</a></li>
-                    <li><a href="contact.html">Presse & Médias</a></li>
-                </ul>
-            </div>
-            <div class="footer-col">
-                <h4>Suivez-nous</h4>
-                <div class="social-links">
-                    <a href="#" aria-label="Suivez-nous sur X / Twitter"><i class="bi bi-twitter-x"></i></a>
-                    <a href="#" aria-label="Suivez-nous sur LinkedIn"><i class="bi bi-linkedin"></i></a>
-                    <a href="#" aria-label="Suivez-nous sur YouTube"><i class="bi bi-youtube"></i></a>
-                    <a href="#" aria-label="Suivez-nous sur Instagram"><i class="bi bi-instagram"></i></a>
-                    <a href="#" aria-label="Suivez-nous sur Facebook"><i class="bi bi-facebook"></i></a>
-                </div>
-            </div>
+      <div class="container footer-grid">
+        <div class="footer-col">
+          <h4>AfriConnect 2026</h4>
+          <p>Le carrefour de l'écosystème numérique africain.</p>
         </div>
-        <div class="footer-bottom">
-            <p>&copy; <span id="currentYear"></span> AfriConnect Summit. Tous droits réservés.</p>
+        <div class="footer-col">
+          <h4>Ressources</h4>
+          <ul>
+            <li><a href="programme.html">Programme</a></li>
+            <li><a href="intervenants.html">Intervenants</a></li>
+            <li><a href="contact.html">Presse & Médias</a></li>
+          </ul>
         </div>
-        <button id="scrollTopBtn" class="scroll-top-btn" aria-label="Retourner en haut de la page"><i class="bi bi-arrow-up-short"></i></button>
+        <div class="footer-col">
+          <h4>Suivez-nous</h4>
+          <div class="social-links">
+            <a href="#" aria-label="Suivez-nous sur X / Twitter"
+              ><i class="bi bi-twitter-x"></i
+            ></a>
+            <a href="#" aria-label="Suivez-nous sur LinkedIn"
+              ><i class="bi bi-linkedin"></i
+            ></a>
+            <a href="#" aria-label="Suivez-nous sur YouTube"
+              ><i class="bi bi-youtube"></i
+            ></a>
+            <a href="#" aria-label="Suivez-nous sur Instagram"
+              ><i class="bi bi-instagram"></i
+            ></a>
+            <a href="#" aria-label="Suivez-nous sur Facebook"
+              ><i class="bi bi-facebook"></i
+            ></a>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>
+          &copy; <span id="currentYear"></span> AfriConnect Summit. Tous droits
+          réservés.
+        </p>
+      </div>
+      <button
+        id="scrollTopBtn"
+        class="scroll-top-btn"
+        aria-label="Retourner en haut de la page"
+      >
+        <i class="bi bi-arrow-up-short"></i>
+      </button>
     </footer>
 
     <script src="js/main.js"></script>
-</body>
+  </body>
 </html>

@@ -177,4 +177,94 @@ if (filterButtons.length > 0) {
 
 // ==========================COMPTEUR DINAMIC ET CONTAREBOUR DATE===========================
 
+// ===============================
+// Compte à rebours de l'événement
+// ===============================
+
+const blocCompte = document.querySelector("#countdown");
+
+if (blocCompte) {
+
+    const dateEvenement = new Date(2026, 9, 15, 8, 30, 0); // 15 octobre 2026 à 08h30
+
+    function afficherTemps() {
+
+        const maintenant = new Date();
+        const ecart = dateEvenement - maintenant;
+
+        if (ecart <= 0) {
+            blocCompte.innerHTML = "<p>L'événement a commencé !</p>";
+            clearInterval(timer);
+            return;
+        }
+
+        const jour = Math.floor(ecart / (1000 * 60 * 60 * 24));
+        const heure = Math.floor((ecart / (1000 * 60 * 60)) % 24);
+        const minute = Math.floor((ecart / (1000 * 60)) % 60);
+        const seconde = Math.floor((ecart / 1000) % 60);
+
+        document.getElementById("days").textContent = jour.toString().padStart(2, "0");
+        document.getElementById("hours").textContent = heure.toString().padStart(2, "0");
+        document.getElementById("minutes").textContent = minute.toString().padStart(2, "0");
+        document.getElementById("seconds").textContent = seconde.toString().padStart(2, "0");
+    }
+
+    afficherTemps();
+
+    const timer = setInterval(afficherTemps, 1000);
+}
+
+// Animation des compteurs lorsque la section devient visible
+
+const compteurs = document.querySelectorAll(".stat-number[data-target]");
+
+if (compteurs.length) {
+
+    const observateur = new IntersectionObserver((elements) => {
+
+        elements.forEach((element) => {
+
+            if (!element.isIntersecting) return;
+
+            const compteur = element.target;
+            const objectif = Number(compteur.dataset.target);
+
+            let debut = null;
+            const duree = 1500;
+
+            function animer(temps) {
+
+                if (!debut) {
+                    debut = temps;
+                }
+
+                const ecoule = temps - debut;
+                const progression = Math.min(ecoule / duree, 1);
+
+                compteur.textContent =
+                    "+" + Math.floor(objectif * progression).toLocaleString("fr-FR");
+
+                if (progression < 1) {
+                    requestAnimationFrame(animer);
+                } else {
+                    compteur.textContent =
+                        "+" + objectif.toLocaleString("fr-FR");
+                }
+            }
+
+            requestAnimationFrame(animer);
+
+            observateur.unobserve(compteur);
+
+        });
+
+    }, {
+        threshold: 0.5
+    });
+
+    compteurs.forEach((compteur) => {
+        observateur.observe(compteur);
+    });
+
+}
 
