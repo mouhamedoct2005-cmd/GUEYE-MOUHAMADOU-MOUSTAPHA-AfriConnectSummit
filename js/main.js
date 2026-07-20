@@ -32,47 +32,66 @@ document.addEventListener("DOMContentLoaded", () => {
             localStorage.setItem(THEME_KEY, next);
         });
     }
-// =================hamburger menu========================
+    // =================hamburger menu========================
     const hamburger = document.getElementById("hamburgerMenu");
-const navLinks = document.getElementById("navLinks");
+    const navLinks = document.getElementById("navLinks");
 
-if (hamburger && navLinks) {
-  hamburger.addEventListener("click", () => {
-    navLinks.classList.toggle("open");
-    const isOpen = navLinks.classList.contains("open");
-    hamburger.setAttribute("aria-expanded", isOpen ? "true" : "false");
-    hamburger.querySelector("i").className = isOpen ? "bi bi-x-lg" : "bi bi-list";
-  });
+    if (hamburger && navLinks) {
+        hamburger.addEventListener("click", () => {
+            navLinks.classList.toggle("open");
+            const isOpen = navLinks.classList.contains("open");
+            hamburger.setAttribute("aria-expanded", isOpen ? "true" : "false");
+            hamburger.querySelector("i").className = isOpen ? "bi bi-x-lg" : "bi bi-list";
+        });
 
-  navLinks.querySelectorAll("a").forEach((link) => {
-    link.addEventListener("click", () => {
-      navLinks.classList.remove("open");
-      hamburger.querySelector("i").className = "bi bi-list";
-    });
-  });
-}
+        navLinks.querySelectorAll("a").forEach((link) => {
+            link.addEventListener("click", () => {
+                navLinks.classList.remove("open");
+                hamburger.querySelector("i").className = "bi bi-list";
+            });
+        });
+    }
 
-// ==================Animation au scroll========================
-/* ANIMATIONS AU SCROLL — IntersectionObserver */
-const animatedEls = document.querySelectorAll(
-  ".section-scroll-animate, .zoom-in, .slide-in-left"
-);
+    // ==================Animation au scroll========================
+    /* ANIMATIONS AU SCROLL — IntersectionObserver */
+    const animatedEls = document.querySelectorAll(
+        ".section-scroll-animate, .zoom-in, .slide-in-left"
+    );
 
-if (animatedEls.length > 0) {
-  const observer = new IntersectionObserver(
-    (entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add("in-view");
-          observer.unobserve(entry.target);
+    if (animatedEls.length > 0) {
+        const observer = new IntersectionObserver(
+            (entries) => {
+                entries.forEach((entry) => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add("in-view");
+                        observer.unobserve(entry.target);
+                    }
+                });
+            },
+            { threshold: 0.15 }
+        );
+
+        animatedEls.forEach((el) => observer.observe(el));
+    }
+    /* BOUTON RETOUR EN HAUT — visible après 300px */
+    const scrollTopBtn = document.getElementById("scrollTopBtn");
+
+    function handleScrollTopVisibility() {
+        if (!scrollTopBtn) return;
+        if (window.scrollY > 300) {
+            scrollTopBtn.classList.add("visible");
+        } else {
+            scrollTopBtn.classList.remove("visible");
         }
-      });
-    },
-    { threshold: 0.15 }
-  );
+    }
+    handleScrollTopVisibility();
+    window.addEventListener("scroll", handleScrollTopVisibility);
 
-  animatedEls.forEach((el) => observer.observe(el));
-}
+    if (scrollTopBtn) {
+        scrollTopBtn.addEventListener("click", () => {
+            window.scrollTo({ top: 0, behavior: "smooth" });
+        });
+    }
 });
 
 
@@ -112,23 +131,45 @@ const mainHeader = document.querySelector(".main-header");
 let lastScrollY = window.scrollY;
 
 function handleHeaderScroll() {
-  if (!mainHeader) return;
-  const currentScrollY = window.scrollY;
+    if (!mainHeader) return;
+    const currentScrollY = window.scrollY;
 
-  // Fond flouté après 80px
-  mainHeader.classList.toggle("scrolled", currentScrollY > 80);
+    // Fond flouté après 80px
+    mainHeader.classList.toggle("scrolled", currentScrollY > 80);
 
-  // Masque la navbar en descendant, la réaffiche en remontant
-  if (currentScrollY > lastScrollY && currentScrollY > 200) {
-    mainHeader.classList.add("nav-hidden");
-  } else {
-    mainHeader.classList.remove("nav-hidden");
-  }
+    // Masque la navbar en descendant, la réaffiche en remontant
+    if (currentScrollY > lastScrollY && currentScrollY > 200) {
+        mainHeader.classList.add("nav-hidden");
+    } else {
+        mainHeader.classList.remove("nav-hidden");
+    }
 
-  lastScrollY = currentScrollY;
+    lastScrollY = currentScrollY;
 }
 handleHeaderScroll();
 window.addEventListener("scroll", handleHeaderScroll);
+
+
+/* FILTRAGE DES INTERVENANTS — sans rechargement de page (intervenants.html) */
+const filterButtons = document.querySelectorAll(".filter-btn");
+const speakerCards = document.querySelectorAll("#speakersGrid .speaker-card");
+
+if (filterButtons.length > 0) {
+  filterButtons.forEach((btn) => {
+    btn.addEventListener("click", () => {
+      // Un seul bouton actif à la fois
+      filterButtons.forEach((b) => b.classList.remove("active"));
+      btn.classList.add("active");
+
+      const category = btn.getAttribute("data-category");
+
+      speakerCards.forEach((card) => {
+        const match = category === "all" || card.getAttribute("data-category") === category;
+        card.classList.toggle("hidden", !match);
+      });
+    });
+  });
+}
 
 
 
