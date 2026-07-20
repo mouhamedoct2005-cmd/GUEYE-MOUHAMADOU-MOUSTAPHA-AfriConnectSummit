@@ -65,7 +65,11 @@ ul {
   /* Accent signature — dégradé coucher de soleil */
   --clr-sunset-1: #ff6b4d;
   --clr-sunset-2: #ff3d81;
-  --gradient-sunset: linear-gradient(120deg, var(--clr-sunset-1), var(--clr-sunset-2));
+  --gradient-sunset: linear-gradient(
+    120deg,
+    var(--clr-sunset-1),
+    var(--clr-sunset-2)
+  );
 
   /* Accent secondaire — lagune */
   --clr-teal: #00c2a8;
@@ -125,7 +129,9 @@ body {
   background-color: var(--bg);
   color: var(--text);
   line-height: 1.6;
-  transition: background-color var(--transition), color var(--transition);
+  transition:
+    background-color var(--transition),
+    color var(--transition);
   overflow-x: hidden;
 }
 
@@ -212,7 +218,10 @@ section {
   font-family: var(--font-display);
   font-weight: 700;
   font-size: 0.95rem;
-  transition: transform var(--transition), box-shadow var(--transition), opacity var(--transition);
+  transition:
+    transform var(--transition),
+    box-shadow var(--transition),
+    opacity var(--transition);
 }
 
 .btn:hover {
@@ -260,7 +269,10 @@ section {
   width: 100%;
   z-index: 1000;
   background: transparent;
-  transition: background-color var(--transition), box-shadow var(--transition), padding var(--transition);
+  transition:
+    background-color var(--transition),
+    box-shadow var(--transition),
+    padding var(--transition);
 }
 
 /* Ajoutée en JS après 80px de scroll */
@@ -342,7 +354,9 @@ section {
   background: var(--bg-alt);
   color: var(--text);
   font-size: 1.1rem;
-  transition: background-color var(--transition), transform var(--transition);
+  transition:
+    background-color var(--transition),
+    transform var(--transition);
 }
 
 .theme-btn:hover {
@@ -503,7 +517,9 @@ section {
     100% 100%,
     0 100%
   );
-  transition: transform var(--transition), box-shadow var(--transition);
+  transition:
+    transform var(--transition),
+    box-shadow var(--transition);
 }
 
 .stat-card:hover {
@@ -543,7 +559,9 @@ section {
   background: var(--surface);
   border: 1px solid var(--border);
   border-radius: var(--radius);
-  transition: transform var(--transition), border-color var(--transition);
+  transition:
+    transform var(--transition),
+    border-color var(--transition);
 }
 
 .benefit-card:hover {
@@ -588,7 +606,10 @@ section {
   border: 1px solid var(--border);
   border-radius: var(--radius);
   overflow: hidden;
-  transition: transform var(--transition), box-shadow var(--transition), border-color var(--transition);
+  transition:
+    transform var(--transition),
+    box-shadow var(--transition),
+    border-color var(--transition);
 }
 
 .speaker-card:hover {
@@ -661,7 +682,10 @@ section {
   color: var(--text-muted);
   font-weight: 600;
   font-size: 0.85rem;
-  transition: background var(--transition), color var(--transition), border-color var(--transition);
+  transition:
+    background var(--transition),
+    color var(--transition),
+    border-color var(--transition);
 }
 
 .filter-btn:hover {
@@ -713,7 +737,9 @@ section {
   border-radius: var(--radius);
   filter: grayscale(1);
   opacity: 0.7;
-  transition: filter var(--transition), opacity var(--transition);
+  transition:
+    filter var(--transition),
+    opacity var(--transition);
 }
 
 .sponsor-logo:hover {
@@ -790,7 +816,10 @@ section {
   border-radius: 50%;
   background: rgba(236, 235, 245, 0.08);
   color: #ecebf5;
-  transition: background var(--transition), color var(--transition), transform var(--transition);
+  transition:
+    background var(--transition),
+    color var(--transition),
+    transform var(--transition);
 }
 
 .social-links a:hover {
@@ -824,7 +853,10 @@ section {
   opacity: 0;
   visibility: hidden;
   transform: translateY(20px);
-  transition: opacity var(--transition), transform var(--transition), visibility var(--transition);
+  transition:
+    opacity var(--transition),
+    transform var(--transition),
+    visibility var(--transition);
   z-index: 900;
 }
 
@@ -863,7 +895,6 @@ section {
   color: transparent;
 }
 
-
 .breadcrumbs {
   margin-bottom: var(--space-sm);
   font-size: 0.85rem;
@@ -899,7 +930,9 @@ section {
   font-size: 0.95rem;
   color: var(--text-muted);
   border-bottom: 3px solid transparent;
-  transition: color var(--transition), border-color var(--transition);
+  transition:
+    color var(--transition),
+    border-color var(--transition);
 }
 
 .tab-btn:hover {
@@ -976,7 +1009,9 @@ section {
   background: var(--surface);
   border: 1px solid var(--border);
   border-radius: var(--radius);
-  transition: transform var(--transition), border-color var(--transition);
+  transition:
+    transform var(--transition),
+    border-color var(--transition);
 }
 
 .topic-card:hover {
@@ -1072,7 +1107,9 @@ section {
   color: var(--text);
   font-family: var(--font-body);
   font-size: 0.95rem;
-  transition: border-color var(--transition), box-shadow var(--transition);
+  transition:
+    border-color var(--transition),
+    box-shadow var(--transition);
 }
 
 .form-group input:focus,
@@ -1157,7 +1194,9 @@ section {
   max-height: 0;
   overflow: hidden;
   padding: 0 0.25rem;
-  transition: max-height var(--transition), padding var(--transition);
+  transition:
+    max-height var(--transition),
+    padding var(--transition);
 }
 
 .accordion-content p {
@@ -1199,8 +1238,8 @@ section {
    20. ANIMATIONS AU SCROLL — piloté par IntersectionObserver (JS)
    -------------------------------------------------------------------------- */
 .section-scroll-animate {
-    opacity: 1;
-    transform: none;
+  opacity: 1;
+  transform: none;
 }
 
 /* --------------------------------------------------------------------------
@@ -1305,7 +1344,37 @@ section {
 }
 
 .logo img {
-    height: 50px;
-    width: auto;
-    display: inline-block;
+  height: 50px;
+  width: auto;
+  display: inline-block;
+}
+/* ===================NAVBAR DYNAMIC AVEC EFFET OVERFLOW======================== */
+
+.main-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+  background: transparent;
+  transition: background-color var(--transition), box-shadow var(--transition),
+    backdrop-filter var(--transition), transform 0.35s ease;
+}
+
+/* Ajoutée en JS après 80px de scroll — effet vitre dépolie */
+.main-header.scrolled {
+  background-color: rgba(244, 245, 249, 0.7);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  box-shadow: var(--shadow-soft);
+  border-bottom: 1px solid var(--border);
+}
+
+[data-theme="dark"] .main-header.scrolled {
+  background-color: rgba(11, 14, 26, 0.7);
+}
+
+/* Ajoutée en JS quand on scrolle vers le bas — navbar se cache */
+.main-header.nav-hidden {
+  transform: translateY(-100%);
 }
