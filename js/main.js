@@ -92,6 +92,11 @@ document.addEventListener("DOMContentLoaded", () => {
             window.scrollTo({ top: 0, behavior: "smooth" });
         });
     }
+    /* ANNÉE DYNAMIQUE DANS LE FOOTER */
+const yearEl = document.getElementById("currentYear");
+if (yearEl) {
+  yearEl.textContent = new Date().getFullYear();
+}
 });
 
 
@@ -268,243 +273,176 @@ if (compteurs.length) {
 
 }
 
-/* ============================================================
-   9. VALIDATION DU FORMULAIRE DE CONTACT
-   - Tous les champs requis vérifiés
-   - Format email vérifié par regex
-   - Longueur minimum du message (20 caractères)
-   - Messages d'erreur sous chaque champ
-   - Message de succès après soumission
-   - Fonctionne sur contact.html uniquement
-   ============================================================ */
+/* VALIDATION DU FORMULAIRE (contact.html) */
+const form = document.getElementById("registrationForm");
 
-// On sélectionne le bouton d'envoi
-const btnEnvoyer = document.getElementById('submitBtn');
+if (form) {
+  const fields = {
+    fullName: {
+      el: document.getElementById("fullName"),
+      validate: (v) => v.trim().length >= 3,
+      message: "Veuillez entrer un nom complet valide (min. 3 caractères).",
+    },
+    email: {
+      el: document.getElementById("email"),
+      validate: (v) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v.trim()),
+      message: "Veuillez entrer une adresse email valide.",
+    },
+    phone: {
+      el: document.getElementById("phone"),
+      validate: (v) => v.replace(/\D/g, "").length >= 8,
+      message: "Le numéro doit contenir au moins 8 chiffres.",
+    },
+    ticketType: {
+      el: document.getElementById("ticketType"),
+      validate: (v) => v !== "",
+      message: "Veuillez choisir un type de participation.",
+    },
+    country: {
+      el: document.getElementById("country"),
+      validate: (v) => v !== "",
+      message: "Veuillez choisir votre pays d'origine.",
+    },
+    motivation: {
+      el: document.getElementById("motivation"),
+      validate: (v) => v.trim().length >= 20,
+      message: "Merci de détailler votre motivation (min. 20 caractères).",
+    },
+  };
 
-// On vérifie qu'on est bien sur la page contact
-if (btnEnvoyer) {
+  function validateField(field) {
+    const { el, validate, message } = field;
+    if (!el) return true;
+    const group = el.closest(".form-group");
+    const errorEl = group.querySelector(".error-msg");
+    const isValid = validate(el.value);
 
-  // --- Fonction utilitaire : afficher une erreur ---
-  function afficherErreur(idChamp, message) {
+    group.classList.toggle("valid", isValid);
+    group.classList.toggle("invalid", !isValid);
+    if (errorEl) errorEl.textContent = isValid ? "" : message;
 
-    const champ = document.getElementById(idChamp);
-    const erreur = document.getElementById(idChamp + '-error');
-
-    if (champ) {
-      // Bordure rouge sur le champ
-      champ.classList.remove('is-valid');
-      champ.classList.add('is-invalid');
-    }
-
-    if (erreur) {
-      // On affiche le message d'erreur
-      erreur.textContent = message;
-    }
+    return isValid;
   }
 
-  // --- Fonction utilitaire : afficher un succès ---
-  function afficherSucces(idChamp) {
-
-    const champ = document.getElementById(idChamp);
-    const erreur = document.getElementById(idChamp + '-error');
-
-    if (champ) {
-      // Bordure verte sur le champ
-      champ.classList.remove('is-invalid');
-      champ.classList.add('is-valid');
-    }
-
-    if (erreur) {
-      // On efface le message d'erreur
-      erreur.textContent = '';
-    }
-  }
-
-  // --- Fonction utilitaire : réinitialiser un champ ---
-  function reinitialiserChamp(idChamp) {
-
-    const champ = document.getElementById(idChamp);
-    const erreur = document.getElementById(idChamp + '-error');
-
-    if (champ) {
-      champ.classList.remove('is-valid', 'is-invalid');
-    }
-
-    if (erreur) {
-      erreur.textContent = '';
-    }
-  }
-
-  // --- Fonction principale : valider le formulaire ---
-  function validerFormulaire() {
-
-    // On suppose que le formulaire est valide
-    let formulaireValide = true;
-
-    // ---- Validation du champ NOM ----
-    
-const nom = document.getElementById('nom');
-
-// Regex qui accepte uniquement les lettres (accents compris), espaces et tirets
-const regexNom = /^[a-zA-ZÀ-ÿ\s\-']+$/;
-
-if (nom) {
-  if (nom.value.trim() === '') {
-    afficherErreur('nom', 'Le nom est obligatoire.');
-    formulaireValide = false;
-  } else if (nom.value.trim().length < 2) {
-    afficherErreur('nom', 'Le nom doit contenir au moins 2 caractères.');
-    formulaireValide = false;
-  } else if (!regexNom.test(nom.value.trim())) {
-    afficherErreur('nom', 'Le nom ne doit contenir que des lettres.');
-    formulaireValide = false;
-  } else {
-    afficherSucces('nom');
-  }
-}
-
-    // ---- Validation du champ PRÉNOM ----
-    
-const prenom = document.getElementById('prenom');
-
-// Même regex que le nom
-const regexPrenom = /^[a-zA-ZÀ-ÿ\s\-']+$/;
-
-if (prenom) {
-  if (prenom.value.trim() === '') {
-    afficherErreur('prenom', 'Le prénom est obligatoire.');
-    formulaireValide = false;
-  } else if (prenom.value.trim().length < 2) {
-    afficherErreur('prenom', 'Le prénom doit contenir au moins 2 caractères.');
-    formulaireValide = false;
-  } else if (!regexPrenom.test(prenom.value.trim())) {
-    afficherErreur('prenom', 'Le prénom ne doit contenir que des lettres.');
-    formulaireValide = false;
-  } else {
-    afficherSucces('prenom');
-  }
-}
-
-    // ---- Validation du champ EMAIL ----
-    const email = document.getElementById('email');
-
-    if (email) {
-
-      // Regex pour vérifier le format de l'email
-      // ex: exemple@domaine.com
-      const regexEmail = /^[a-zA-Z0-9._%+\-]+@[a-zA-Z0-9.\-]+\.[a-zA-Z]{2,}$/;
-
-      if (email.value.trim() === '') {
-        afficherErreur('email', "L'email est obligatoire.");
-        formulaireValide = false;
-      } else if (!regexEmail.test(email.value.trim())) {
-        afficherErreur('email', "Le format de l'email est invalide. Ex: nom@domaine.com");
-        formulaireValide = false;
-      } else {
-        afficherSucces('email');
-      }
-    }
-
-    // ---- Validation du champ SUJET ----
-    const sujet = document.getElementById('sujet');
-
-    if (sujet) {
-      if (sujet.value === '' || sujet.value === null) {
-        afficherErreur('sujet', 'Veuillez choisir un sujet.');
-        formulaireValide = false;
-      } else {
-        afficherSucces('sujet');
-      }
-    }
-
-    // ---- Validation du champ MESSAGE ----
-    const message = document.getElementById('message');
-
-    if (message) {
-      if (message.value.trim() === '') {
-        afficherErreur('message', 'Le message est obligatoire.');
-        formulaireValide = false;
-      } else if (message.value.trim().length < 20) {
-        afficherErreur('message',
-          'Le message doit contenir au moins 20 caractères. ' +
-          '(' + message.value.trim().length + '/20)'
-        );
-        formulaireValide = false;
-      } else {
-        afficherSucces('message');
-      }
-    }
-
-    return formulaireValide;
-  }
-
-  // --- Écoute du clic sur le bouton Envoyer ---
-  btnEnvoyer.addEventListener('click', function() {
-
-    // On lance la validation
-    const estValide = validerFormulaire();
-
-    // Si tout est valide
-    if (estValide) {
-
-      // On affiche le message de succès
-      const msgSucces = document.getElementById('successMsg');
-
-      if (msgSucces) {
-        msgSucces.style.display = 'block';
-        msgSucces.classList.remove('d-none');
-      }
-
-      // On désactive le bouton pour éviter un double envoi
-      btnEnvoyer.disabled = true;
-      btnEnvoyer.textContent = '✓ Message envoyé !';
-
-      // On réinitialise tous les champs après 4 secondes
-      setTimeout(function() {
-
-        // Réinitialisation des champs
-        const champs = ['nom', 'prenom', 'email', 'sujet', 'message'];
-        champs.forEach(function(id) {
-          const champ = document.getElementById(id);
-          if (champ) {
-            champ.value = '';
-            reinitialiserChamp(id);
-          }
-        });
-
-        // On cache le message de succès
-        if (msgSucces) {
-          msgSucces.style.display = 'none';
-        }
-
-        // On réactive le bouton
-        btnEnvoyer.disabled = false;
-        btnEnvoyer.innerHTML = '<i class="bi bi-send-fill me-2"></i> Envoyer le message';
-
-      }, 4000);
-    }
+  // Validation en temps réel
+  Object.values(fields).forEach((field) => {
+    if (!field.el) return;
+    const eventType = field.el.tagName === "SELECT" ? "change" : "input";
+    field.el.addEventListener(eventType, () => validateField(field));
+    field.el.addEventListener("blur", () => validateField(field));
   });
 
-  // --- Validation en temps réel ---
-  // Les erreurs disparaissent dès que l'utilisateur corrige
+  form.addEventListener("submit", (e) => {
+    e.preventDefault();
 
-  const champsAValider = ['nom', 'prenom', 'email', 'sujet', 'message'];
+    let allValid = true;
+    Object.values(fields).forEach((field) => {
+      if (!validateField(field)) allValid = false;
+    });
 
-  champsAValider.forEach(function(id) {
-
-    const champ = document.getElementById(id);
-
-    if (champ) {
-      // On écoute la saisie en temps réel
-      champ.addEventListener('input', function() {
-
-        // Si le champ n'est plus vide, on retire l'erreur
-        if (champ.value.trim() !== '') {
-          reinitialiserChamp(id);
-        }
-      });
+    if (!allValid) {
+      const firstInvalid = form.querySelector(".invalid input, .invalid select, .invalid textarea");
+      if (firstInvalid) firstInvalid.focus();
+      return;
     }
+
+    // Succès : affichage du message, réinitialisation du formulaire
+    const successMessage = document.getElementById("successMessage");
+    if (successMessage) {
+      successMessage.classList.add("show");
+      successMessage.scrollIntoView({ behavior: "smooth", block: "center" });
+    }
+
+    form.reset();
+    Object.values(fields).forEach((field) => {
+      if (!field.el) return;
+      const group = field.el.closest(".form-group");
+      group.classList.remove("valid", "invalid");
+    });
+
+    setTimeout(() => {
+      if (successMessage) successMessage.classList.remove("show");
+    }, 6000);
   });
+}
 
-} // fin if btnEnvoyer
+/* CIEL ÉTOILÉ ANIMÉ — compatible thème clair/sombre */
+const starCanvas = document.getElementById("starfield");
 
+if (starCanvas) {
+  const ctx = starCanvas.getContext("2d");
+  let stars = [];
+  let t = 0;
+
+  function resizeCanvas() {
+    starCanvas.width = window.innerWidth;
+    starCanvas.height = window.innerHeight;
+    generateStars();
+  }
+
+  function generateStars() {
+    const density = 0.0009; // Ajustez la densité des étoiles ici
+    const count = Math.floor(starCanvas.width * starCanvas.height * density);
+    stars = Array.from({ length: count }, () => ({
+      x: Math.random() * starCanvas.width,
+      y: Math.random() * starCanvas.height,
+
+      
+      radius: Math.random() * 1.4 + 0.3,
+      baseOpacity: Math.random() * 0.6 + 0.3,
+      twinkleSpeed: Math.random() * 0.02 + 0.005,
+      phase: Math.random() * Math.PI * 2,
+      drift: Math.random() * 0.05 + 0.01,
+      accent: Math.random() < 0.20,
+    }));
+  }
+
+  function getPalette() {
+  const isDark = document.documentElement.getAttribute("data-theme") === "dark";
+
+  if (isDark) {
+    return {
+      sky1: "#0b0e1a",
+      sky2: "#141a30",
+      star: "255, 255, 255",
+      accent: "255, 61, 129"
+    };
+  }
+
+  return {
+    sky1: "#f4f5f9",
+    sky2: "#e7e9f2",
+    star: "255, 105, 180",
+    accent: "255, 61, 129"
+  };
+}
+
+  function drawStars() {
+    const { sky1, sky2, star, accent } = getPalette();
+
+    const gradient = ctx.createLinearGradient(0, 0, 0, starCanvas.height);
+    gradient.addColorStop(0, sky1);
+    gradient.addColorStop(1, sky2);
+    ctx.fillStyle = gradient;
+    ctx.fillRect(0, 0, starCanvas.width, starCanvas.height);
+
+    stars.forEach((s) => {
+      const twinkle = Math.sin(t * s.twinkleSpeed + s.phase) * 0.35;
+      const opacity = Math.max(0, Math.min(1, s.baseOpacity + twinkle));
+      ctx.beginPath();
+      ctx.arc(s.x, s.y, s.radius, 0, Math.PI * 2);
+      ctx.fillStyle = `rgba(${s.accent ? accent : star}, ${opacity})`;
+      ctx.fill();
+
+      s.y += s.drift;
+      if (s.y > starCanvas.height) s.y = 0;
+    });
+
+    t++;
+    requestAnimationFrame(drawStars);
+  }
+
+  resizeCanvas();
+  window.addEventListener("resize", resizeCanvas);
+  drawStars();
+}

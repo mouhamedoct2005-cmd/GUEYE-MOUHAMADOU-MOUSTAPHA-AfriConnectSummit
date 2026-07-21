@@ -1410,3 +1410,21 @@ section {
 .main-header.nav-hidden {
   transform: translateY(-100%);
 }
+
+
+/* CIEL ÉTOILÉ EN ARRIÈRE-PLAN — dessiné en JS, visible derrière les sections sans fond opaque */
+html {
+  background: var(--bg); /* solution de repli avant que le JS ne dessine */
+}
+
+body {
+  background-color: transparent;
+}
+
+#starfield {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  display: block;
+  pointer-events: none;
+}
